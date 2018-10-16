@@ -1,0 +1,28 @@
+<h1>Welcome to Book API</h1>
+<div>
+    <form>
+        Enter Title <input type="text" [(ngModel)] = "book.title" name="title"><br/>
+        <input type="hidden" name="book.id"/>
+        Enter Author <input type="text" [(ngModel)] = "book.author" name="author"><br/>
+        <button (click) = "addBook()">Add Book</button>
+    </form>
+
+</div>
+<div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr *ngFor = "let book of books">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td> <button (click) = "getBookById(book.id)">Update</button> | <button (click) = "deleteBook(book.id)">Delete</button></td>
+        </tr>
+    </table>
+
+</div>
